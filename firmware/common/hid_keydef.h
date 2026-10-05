@@ -70,6 +70,16 @@
 
 #define KEY_CAPSLOCK            (HID_KEY(HID_KEYBOARD_PAGE, 0x39))
 
+#define KEY_KP_1                (HID_KEY(HID_KEYBOARD_PAGE, 0x59))
+#define KEY_KP_2                (HID_KEY(HID_KEYBOARD_PAGE, 0x5A))
+#define KEY_KP_3                (HID_KEY(HID_KEYBOARD_PAGE, 0x5B))
+#define KEY_KP_4                (HID_KEY(HID_KEYBOARD_PAGE, 0x5C))
+#define KEY_KP_5                (HID_KEY(HID_KEYBOARD_PAGE, 0x5D))
+#define KEY_KP_6                (HID_KEY(HID_KEYBOARD_PAGE, 0x5E))
+#define KEY_KP_7                (HID_KEY(HID_KEYBOARD_PAGE, 0x5F))
+#define KEY_KP_8                (HID_KEY(HID_KEYBOARD_PAGE, 0x60))
+#define KEY_KP_9                (HID_KEY(HID_KEYBOARD_PAGE, 0x61))
+
 /*  don't invoke with side-effect in argmuent */
 #define KEY_FUNCTION(n)         (HID_KEY(HID_KEYBOARD_PAGE, \
 	n <   1 ? KEY_NONE    : \

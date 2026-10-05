@@ -15,11 +15,18 @@
 
 /* For possible keys, see ../common/hid_keydef.h */
 
+//#define KEYS \
+//	KEY('A'), KEY('B'), KEY('C'), KEY('D'), KEY('E'), \
+//	KEY('F'), KEY('G'), KEY('H'), KEY('I'), KEY('J'), \
+//	KEY('9'), KEY('6'), KEY('3'), KEY('N'), KEY('O'), \
+//	KEY('8'), KEY('5'), KEY('2'), KEY('S'), KEY('T'), \
+//	KEY('7'), KEY('4'), KEY('1'), KEY('X'), KEY('Y'),
+
 #define KEYS \
 	KEY('A'), KEY('B'), KEY('C'), KEY('D'), KEY('E'), \
 	KEY('F'), KEY('G'), KEY('H'), KEY('I'), KEY('J'), \
-	KEY('K'), KEY('L'), KEY('M'), KEY('N'), KEY('O'), \
-	KEY('P'), KEY('Q'), KEY('R'), KEY('S'), KEY('T'), \
-	KEY('U'), KEY('V'), KEY('W'), KEY('X'), KEY('Y'),
+	KEY_KP_3, KEY_KP_6, KEY_KP_9, KEY('N'), KEY('O'), \
+	KEY_KP_2, KEY_KP_5, KEY_KP_8, KEY('S'), KEY('T'), \
+	KEY_KP_1, KEY_KP_4, KEY_KP_7, KEY('X'), KEY('Y'),
 
 #endif // CONFIG_H
