@@ -55,7 +55,7 @@
 static usbd_device *device;
 
 static uint8_t report_descriptor[256];
-static uint8_t report[32];
+static uint8_t report[32]; // Bitfield of buttons that are currently pressed down
 static uint8_t control[128];
 
 static uint32_t keymap[HID_KEYPAD_MAX_KEYS];
@@ -353,10 +353,26 @@ void usb_hid_keypad_key_down(uint32_t hid_key)
 	need_update = 1;
 }
 
+static bool keys_down(size_t report_length)
+{
+	size_t i;
+	for(i=0; i < report_length; i++)
+		if (report[i] != 0)
+			return true;
+
+	return false;
+}
+
 void usb_hid_keypad_poll(void)
 {
 	if (usb_ready && need_update)
 	{
+		// If any key is pressed, insert a control key as well
+		usb_hid_keypad_key_up(KEY_RIGHT_CONTROL); // Disable the virtual control key
+		if (keys_down(endpoint_desc.wMaxPacketSize))
+			usb_hid_keypad_key_down(KEY_RIGHT_CONTROL);
+
+
 		need_update = 0;
 		if (usbd_ep_write_packet(device, endpoint_desc.bEndpointAddress,
 		                         report, endpoint_desc.wMaxPacketSize) !=
